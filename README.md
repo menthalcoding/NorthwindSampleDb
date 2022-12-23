@@ -1,0 +1,2 @@
+# NorthwindSampleDb
+<a href="MenthalCoding.com" target="_blank">MenthalCoding.com</a> is code generator. Creates database tables. Builds stored procedures for data management. Builds web pages and RESTful API interfaces for deployment. RESTful API provides interactive data management from the mobile app. The generated code files use the current design templates. Provides quick start for new developers. Saves coding time and testing for experienced developers.
