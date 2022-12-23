@@ -1,0 +1,18 @@
+@model NorthwindSampleDb.Models.EmployeesTerritories
+
+@{
+	ViewData["Title"] = "Details - EmployeesTerritories";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>EmployeesTerritories - Details</h1>
+
+    <div class="display-label">EmpleymontId</div>
+    <div class="display-field">@Html.DisplayFor(model => model.EmpleymontId)</div>
+    <div class="display-label">TerritoryID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.TerritoryID)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { EmpleymontId=Model.EmpleymontId, TerritoryID=Model.TerritoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+@model NorthwindSampleDb.Models.Order
+
+@{
+	ViewData["Title"] = "Details - Order";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Order - Details</h1>
+
+    <div class="display-label">OrderId</div>
+    <div class="display-field">@Html.DisplayFor(model => model.OrderId)</div>
+    <div class="display-label">CustomerID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CustomerID)</div>
+    <div class="display-label">EmployeeID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.EmployeeID)</div>
+    <div class="display-label">OrderDate</div>
+    <div class="display-field">@Html.DisplayFor(model => model.OrderDate)</div>
+    <div class="display-label">RequiredDate</div>
+    <div class="display-field">@Html.DisplayFor(model => model.RequiredDate)</div>
+    <div class="display-label">ShippedDate</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShippedDate)</div>
+    <div class="display-label">ShipName</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipName)</div>
+    <div class="display-label">ShipVia</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipVia)</div>
+    <div class="display-label">Freight</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Freight)</div>
+    <div class="display-label">ShipAddress</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipAddress)</div>
+    <div class="display-label">ShipCity</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipCity)</div>
+    <div class="display-label">ShipRegion</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipRegion)</div>
+    <div class="display-label">ShipPostalCode</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipPostalCode)</div>
+    <div class="display-label">ShipCountry</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipCountry)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { OrderId=Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<br><hr /><br>
+<h1>OrderDetails</h1>
+<table class="table" id="tbl_OrderDetails_List">
+<thead>
+	<tr class="tableCaption">
+		<th>OrderId</th>
+		<th>ProductId</th>
+		<th>UnitPrice</th>
+		<th>Quantity</th>
+		<th>Discount</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.OrderDetailsList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.OrderId)</td>
+		<td>@Html.DisplayFor(model => ft.ProductId)</td>
+		<td>@Html.DisplayFor(model => ft.UnitPrice)</td>
+		<td>@Html.DisplayFor(model => ft.Quantity)</td>
+		<td>@Html.DisplayFor(model => ft.Discount)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_OrderDetails_List').DataTable();
+        });
+    </script>

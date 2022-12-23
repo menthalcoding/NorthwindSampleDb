@@ -1,0 +1,55 @@
+@model NorthwindSampleDb.Models.OrderDetails
+
+@{
+	ViewData["Title"] = "Edit - OrderDetails";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>OrderDetails - Edit</h1>
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="editor-label">
+         @Html.LabelFor(model => model.OrderId)
+        </div>
+        <div class="editor-field">
+			@Html.DropDownListFor(model => model.OrderId, (IEnumerable<SelectListItem>)ViewBag.OrderList, new { @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.ProductId)
+        </div>
+        <div class="editor-field">
+			@Html.DropDownListFor(model => model.ProductId, (IEnumerable<SelectListItem>)ViewBag.ProductsList, new { @disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.UnitPrice)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.UnitPrice)
+            @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Discount)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Discount)
+            @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+}
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>

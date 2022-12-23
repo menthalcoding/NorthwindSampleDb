@@ -1,0 +1,146 @@
+@model IEnumerable<NorthwindSampleDb.Models.Territories>
+
+@{
+	ViewData["Title"] = "Index - Territories";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+    
+<h1>Territories - Index</h1>
+
+<p>
+    Web Api Functions:
+    <input id="btn_Get" type="button" value="Get" />
+    <input id="btn_Post" type="button" value="Post" />
+    <input id="btn_Put" type="button" value="Put" />
+    <input id="btn_Delete" type="button" value="Delete" />
+</p>
+<p>
+    <a href="/Territories/Create" asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped" id="tbl_Territories">
+    <thead>
+        <tr class="tableCaption">
+            <th>@Html.DisplayNameFor(model => model.TerritoryID)</th>
+            <th>@Html.DisplayNameFor(model => model.TerritoryDescription)</th>
+            <th>@Html.DisplayNameFor(model => model.RegionID)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+	@foreach (var item in Model) 
+	{
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.TerritoryID)</td>
+            <td>@Html.DisplayFor(modelItem => item.TerritoryDescription)</td>
+            <td>@Html.DisplayFor(modelItem => item.RegionID)</td>
+            <td>
+				<a href="/Territories/Edit?TerritoryID=@item.TerritoryID">Edit</a>
+				<a href="/Territories/Details?TerritoryID=@item.TerritoryID">Details</a>
+                <a href="/Territories/Delete?TerritoryID=@item.TerritoryID">Delete</a>
+            </td>
+        </tr>
+	}
+</tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl_Territories').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        /////////////////////////////
+        // IMPORTANT
+        // The following code samples are provided as an example.
+        // Security problems may occur.
+        /////////////////////////////
+
+        async function getData(url = '', data = {}) {
+            // Default options are marked with *
+            let token = "Get your token here, Store it in local storage and read it from local storage is a better method"
+            const response = await fetch(url, {
+                method: 'GET',
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": JwtBearerKey //This field value appears. It causes serious security problems.
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                //body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+
+            if (response.status != '200')
+                alert(response.status + ' ' + response.statusText);
+
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            let token = "Get your token here, Store it in local storage and read it from local storage is a better method"
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": JwtBearerKey //This field value appears. It causes serious security problems.
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+
+            if (response.status != '200')
+                alert(response.status + ' ' + response.statusText);
+
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        $('#btn_Get').click(function () {
+            getData('api/Territories', {})
+                .then(data => {
+                    alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+                });
+        });
+
+        $('#btn_Post').click(function () {
+            var data = {
+				TerritoryID: '',
+				TerritoryDescription: '',
+				RegionID: '',
+            };
+            postData('api/Territories', data)
+                .then(data => {
+                    alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+                });
+        });
+
+        $('#btn_Put').click(function () {
+            var ids = '1';
+            var data = {
+				TerritoryID: '',
+				TerritoryDescription: '',
+				RegionID: '',
+            };
+            postData('api/Territories/update/' + ids, data)
+                .then(data => {
+                    alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+                });
+        });
+
+        $('#btn_Delete').click(function () {
+            var ids = '2';
+            postData('api/Territories/delete/' + ids, null)
+                .then(data => {
+                    alert(JSON.stringify(data));
+                });
+        });
+    });
+</script>

@@ -1,0 +1,104 @@
+@model NorthwindSampleDb.Models.Suppliers
+
+@{
+	ViewData["Title"] = "Edit - Suppliers";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Suppliers - Edit</h1>
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="editor-label">
+         @Html.LabelFor(model => model.SupplierID)
+        </div>
+        <div class="editor-field">
+			@Html.DisplayFor(model => model.SupplierID)
+            @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.CompanyName)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.CompanyName)
+            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.ContactName)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.ContactName)
+            @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.ContactTitle)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.ContactTitle)
+            @Html.ValidationMessageFor(model => model.ContactTitle, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Region)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Region)
+            @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.PostalCode)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.PostalCode)
+            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Fax)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Fax)
+            @Html.ValidationMessageFor(model => model.Fax, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.HomePage)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.HomePage)
+            @Html.ValidationMessageFor(model => model.HomePage, "", new { @class = "text-danger" })
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+}
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>

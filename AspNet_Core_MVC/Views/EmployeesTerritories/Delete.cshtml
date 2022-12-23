@@ -1,0 +1,24 @@
+@model NorthwindSampleDb.Models.EmployeesTerritories
+
+@{
+	ViewData["Title"] = "Delete - EmployeesTerritories";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>EmployeesTerritories - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">EmpleymontId</div>
+        <div class="display-field">@Html.DisplayFor(m => m.EmpleymontId)</div>
+        <div class="display-label">TerritoryID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.TerritoryID)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

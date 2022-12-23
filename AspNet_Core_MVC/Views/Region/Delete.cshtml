@@ -1,0 +1,24 @@
+@model NorthwindSampleDb.Models.Region
+
+@{
+	ViewData["Title"] = "Delete - Region";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>Region - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">RegionID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.RegionID)</div>
+        <div class="display-label">RegionDescription</div>
+        <div class="display-field">@Html.DisplayFor(m => m.RegionDescription)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

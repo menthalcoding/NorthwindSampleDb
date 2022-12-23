@@ -1,0 +1,30 @@
+@model NorthwindSampleDb.Models.OrderDetails
+
+@{
+	ViewData["Title"] = "Delete - OrderDetails";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>OrderDetails - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">OrderId</div>
+        <div class="display-field">@Html.DisplayFor(m => m.OrderId)</div>
+        <div class="display-label">ProductId</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ProductId)</div>
+        <div class="display-label">UnitPrice</div>
+        <div class="display-field">@Html.DisplayFor(m => m.UnitPrice)</div>
+        <div class="display-label">Quantity</div>
+        <div class="display-field">@Html.DisplayFor(m => m.Quantity)</div>
+        <div class="display-label">Discount</div>
+        <div class="display-field">@Html.DisplayFor(m => m.Discount)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

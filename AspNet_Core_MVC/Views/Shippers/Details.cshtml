@@ -1,0 +1,70 @@
+@model NorthwindSampleDb.Models.Shippers
+
+@{
+	ViewData["Title"] = "Details - Shippers";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Shippers - Details</h1>
+
+    <div class="display-label">ShipperId</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ShipperId)</div>
+    <div class="display-label">CompanyName</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CompanyName)</div>
+    <div class="display-label">Phone</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Phone)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { ShipperId=Model.ShipperId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<br><hr /><br>
+<h1>Order</h1>
+<table class="table" id="tbl_Order_List">
+<thead>
+	<tr class="tableCaption">
+		<th>OrderId</th>
+		<th>CustomerID</th>
+		<th>EmployeeID</th>
+		<th>OrderDate</th>
+		<th>RequiredDate</th>
+		<th>ShippedDate</th>
+		<th>ShipName</th>
+		<th>ShipVia</th>
+		<th>Freight</th>
+		<th>ShipAddress</th>
+		<th>ShipCity</th>
+		<th>ShipRegion</th>
+		<th>ShipPostalCode</th>
+		<th>ShipCountry</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.OrderList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.OrderId)</td>
+		<td>@Html.DisplayFor(model => ft.CustomerID)</td>
+		<td>@Html.DisplayFor(model => ft.EmployeeID)</td>
+		<td>@Html.DisplayFor(model => ft.OrderDate)</td>
+		<td>@Html.DisplayFor(model => ft.RequiredDate)</td>
+		<td>@Html.DisplayFor(model => ft.ShippedDate)</td>
+		<td>@Html.DisplayFor(model => ft.ShipName)</td>
+		<td>@Html.DisplayFor(model => ft.ShipVia)</td>
+		<td>@Html.DisplayFor(model => ft.Freight)</td>
+		<td>@Html.DisplayFor(model => ft.ShipAddress)</td>
+		<td>@Html.DisplayFor(model => ft.ShipCity)</td>
+		<td>@Html.DisplayFor(model => ft.ShipRegion)</td>
+		<td>@Html.DisplayFor(model => ft.ShipPostalCode)</td>
+		<td>@Html.DisplayFor(model => ft.ShipCountry)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_Order_List').DataTable();
+        });
+    </script>

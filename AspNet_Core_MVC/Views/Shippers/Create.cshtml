@@ -1,0 +1,41 @@
+@model NorthwindSampleDb.Models.Shippers
+
+@{
+	ViewData["Title"] = "Create - Shippers";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Shippers - Create</h1>
+
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipperId)
+    </div>
+    <div class="editor-field">
+		@Html.DisplayFor(model => model.ShipperId)
+        @Html.ValidationMessageFor(model => model.ShipperId, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CompanyName)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.CompanyName)
+        @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Phone)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.Phone)
+        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+    </div>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

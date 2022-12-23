@@ -1,0 +1,34 @@
+@model NorthwindSampleDb.Models.Region
+
+@{
+	ViewData["Title"] = "Edit - Region";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Region - Edit</h1>
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="editor-label">
+         @Html.LabelFor(model => model.RegionID)
+        </div>
+        <div class="editor-field">
+			@Html.DisplayFor(model => model.RegionID)
+            @Html.ValidationMessageFor(model => model.RegionID, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.RegionDescription)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.RegionDescription)
+            @Html.ValidationMessageFor(model => model.RegionDescription, "", new { @class = "text-danger" })
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+}
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>

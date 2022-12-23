@@ -1,0 +1,48 @@
+@model NorthwindSampleDb.Models.Order
+
+@{
+	ViewData["Title"] = "Delete - Order";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>Order - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">OrderId</div>
+        <div class="display-field">@Html.DisplayFor(m => m.OrderId)</div>
+        <div class="display-label">CustomerID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.CustomerID)</div>
+        <div class="display-label">EmployeeID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.EmployeeID)</div>
+        <div class="display-label">OrderDate</div>
+        <div class="display-field">@Html.DisplayFor(m => m.OrderDate)</div>
+        <div class="display-label">RequiredDate</div>
+        <div class="display-field">@Html.DisplayFor(m => m.RequiredDate)</div>
+        <div class="display-label">ShippedDate</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShippedDate)</div>
+        <div class="display-label">ShipName</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipName)</div>
+        <div class="display-label">ShipVia</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipVia)</div>
+        <div class="display-label">Freight</div>
+        <div class="display-field">@Html.DisplayFor(m => m.Freight)</div>
+        <div class="display-label">ShipAddress</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipAddress)</div>
+        <div class="display-label">ShipCity</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipCity)</div>
+        <div class="display-label">ShipRegion</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipRegion)</div>
+        <div class="display-label">ShipPostalCode</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipPostalCode)</div>
+        <div class="display-label">ShipCountry</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ShipCountry)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

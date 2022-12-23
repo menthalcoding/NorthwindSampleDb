@@ -1,0 +1,24 @@
+@model NorthwindSampleDb.Models.CustomersDemographics
+
+@{
+	ViewData["Title"] = "Delete - CustomersDemographics";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>CustomersDemographics - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">CustomersTypeId</div>
+        <div class="display-field">@Html.DisplayFor(m => m.CustomersTypeId)</div>
+        <div class="display-label">CustomersDesc</div>
+        <div class="display-field">@Html.DisplayFor(m => m.CustomersDesc)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

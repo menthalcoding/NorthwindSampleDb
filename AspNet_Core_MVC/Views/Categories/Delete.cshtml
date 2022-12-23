@@ -1,0 +1,28 @@
+@model NorthwindSampleDb.Models.Categories
+
+@{
+	ViewData["Title"] = "Delete - Categories";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>Categories - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">CategoryID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.CategoryID)</div>
+        <div class="display-label">CategoryName</div>
+        <div class="display-field">@Html.DisplayFor(m => m.CategoryName)</div>
+        <div class="display-label">Description</div>
+        <div class="display-field">@Html.DisplayFor(m => m.Description)</div>
+        <div class="display-label">Picture</div>
+        <div class="display-field">@Html.DisplayFor(m => m.Picture)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

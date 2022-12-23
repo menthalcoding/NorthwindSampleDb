@@ -1,0 +1,190 @@
+@model IEnumerable<NorthwindSampleDb.Models.Order>
+
+@{
+	ViewData["Title"] = "Index - Order";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+    
+<h1>Order - Index</h1>
+
+<p>
+    Web Api Functions:
+    <input id="btn_Get" type="button" value="Get" />
+    <input id="btn_Post" type="button" value="Post" />
+    <input id="btn_Put" type="button" value="Put" />
+    <input id="btn_Delete" type="button" value="Delete" />
+</p>
+<p>
+    <a href="/Order/Create" asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped" id="tbl_Order">
+    <thead>
+        <tr class="tableCaption">
+            <th>@Html.DisplayNameFor(model => model.OrderId)</th>
+            <th>@Html.DisplayNameFor(model => model.CustomerID)</th>
+            <th>@Html.DisplayNameFor(model => model.EmployeeID)</th>
+            <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+            <th>@Html.DisplayNameFor(model => model.RequiredDate)</th>
+            <th>@Html.DisplayNameFor(model => model.ShippedDate)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipName)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipVia)</th>
+            <th>@Html.DisplayNameFor(model => model.Freight)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipAddress)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipCity)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipRegion)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipPostalCode)</th>
+            <th>@Html.DisplayNameFor(model => model.ShipCountry)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+	@foreach (var item in Model) 
+	{
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.OrderId)</td>
+            <td>@Html.DisplayFor(modelItem => item.CustomerID)</td>
+            <td>@Html.DisplayFor(modelItem => item.EmployeeID)</td>
+            <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.RequiredDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShippedDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipName)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipVia)</td>
+            <td>@Html.DisplayFor(modelItem => item.Freight)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipAddress)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipCity)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipRegion)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipPostalCode)</td>
+            <td>@Html.DisplayFor(modelItem => item.ShipCountry)</td>
+            <td>
+				<a href="/Order/Edit?OrderId=@item.OrderId">Edit</a>
+				<a href="/Order/Details?OrderId=@item.OrderId">Details</a>
+                <a href="/Order/Delete?OrderId=@item.OrderId">Delete</a>
+            </td>
+        </tr>
+	}
+</tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl_Order').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        /////////////////////////////
+        // IMPORTANT
+        // The following code samples are provided as an example.
+        // Security problems may occur.
+        /////////////////////////////
+
+        async function getData(url = '', data = {}) {
+            // Default options are marked with *
+            let token = "Get your token here, Store it in local storage and read it from local storage is a better method"
+            const response = await fetch(url, {
+                method: 'GET',
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": JwtBearerKey //This field value appears. It causes serious security problems.
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                //body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+
+            if (response.status != '200')
+                alert(response.status + ' ' + response.statusText);
+
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            let token = "Get your token here, Store it in local storage and read it from local storage is a better method"
+            const response = await fetch(url, {
+                method: 'POST',
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": JwtBearerKey //This field value appears. It causes serious security problems.
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+
+            if (response.status != '200')
+                alert(response.status + ' ' + response.statusText);
+
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
+
+        $('#btn_Get').click(function () {
+            getData('api/Order', {})
+                .then(data => {
+                    alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+                });
+        });
+
+        $('#btn_Post').click(function () {
+            var data = {
+				OrderId: '',
+				CustomerID: '',
+				EmployeeID: '',
+				OrderDate: '',
+				RequiredDate: '',
+				ShippedDate: '',
+				ShipName: '',
+				ShipVia: '',
+				Freight: '',
+				ShipAddress: '',
+				ShipCity: '',
+				ShipRegion: '',
+				ShipPostalCode: '',
+				ShipCountry: '',
+            };
+            postData('api/Order', data)
+                .then(data => {
+                    alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+                });
+        });
+
+        $('#btn_Put').click(function () {
+            var ids = '1';
+            var data = {
+				OrderId: '',
+				CustomerID: '',
+				EmployeeID: '',
+				OrderDate: '',
+				RequiredDate: '',
+				ShippedDate: '',
+				ShipName: '',
+				ShipVia: '',
+				Freight: '',
+				ShipAddress: '',
+				ShipCity: '',
+				ShipRegion: '',
+				ShipPostalCode: '',
+				ShipCountry: '',
+            };
+            postData('api/Order/update/' + ids, data)
+                .then(data => {
+                    alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+                });
+        });
+
+        $('#btn_Delete').click(function () {
+            var ids = '2';
+            postData('api/Order/delete/' + ids, null)
+                .then(data => {
+                    alert(JSON.stringify(data));
+                });
+        });
+    });
+</script>

@@ -1,0 +1,40 @@
+@model NorthwindSampleDb.Models.Products
+
+@{
+	ViewData["Title"] = "Delete - Products";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <h1>Products - Delete</h1>
+    <h3>Are you sure you want to delete this?</h3>
+
+        <div class="display-label">ProductId</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ProductId)</div>
+        <div class="display-label">ProductName</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ProductName)</div>
+        <div class="display-label">SupplierID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.SupplierID)</div>
+        <div class="display-label">CategoryID</div>
+        <div class="display-field">@Html.DisplayFor(m => m.CategoryID)</div>
+        <div class="display-label">QuantityPerUnit</div>
+        <div class="display-field">@Html.DisplayFor(m => m.QuantityPerUnit)</div>
+        <div class="display-label">UnitPrice</div>
+        <div class="display-field">@Html.DisplayFor(m => m.UnitPrice)</div>
+        <div class="display-label">UnitsInStock</div>
+        <div class="display-field">@Html.DisplayFor(m => m.UnitsInStock)</div>
+        <div class="display-label">UnitsOnOrder</div>
+        <div class="display-field">@Html.DisplayFor(m => m.UnitsOnOrder)</div>
+        <div class="display-label">ReorderLevel</div>
+        <div class="display-field">@Html.DisplayFor(m => m.ReorderLevel)</div>
+        <div class="display-label">Discontinued</div>
+        <div class="display-field">@Html.DisplayFor(m => m.Discontinued)</div>
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+
+    <p>
+    @Html.ActionLink("Back to List", "Index")
+    </p>
+}

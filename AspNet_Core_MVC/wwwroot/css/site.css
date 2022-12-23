@@ -1,0 +1,165 @@
+﻿
+html, body, .sidenav {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: "Lato";
+    font-size: 100%;
+    overflow-y: scroll;
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: #fefefe;
+}
+
+h1 {
+    font-size: larger;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tableCaption {
+    background: #000;
+    color: #ffffff;
+}
+
+.editor-label {
+    text-align: left !important;
+    width: 20% !important;
+    float: left;
+    padding: 2px;
+}
+
+.editor-field {
+    padding: 2px;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}
+
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+    .sidenav ul {
+        list-style-type: none;
+        display: table-row;
+    }
+
+        .sidenav ul > li {
+            display: table-row;
+            vertical-align: middle;
+        }
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (min-width: 480px) {
+    .sidenav {
+        padding-top: 60px;
+        width: 200px;
+    }
+
+        .sidenav a {
+            float: left;
+            font-size: 18px;
+        }
+
+    div.container {
+        margin-left: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidenav {
+        position: relative;
+        padding-top: 0px;
+        width: 100%;
+    }
+
+    div.container {
+        margin-left: 0px;
+    }
+}
+
+fieldset {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #39c !important;
+    padding: 12px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+legend {
+    color: #39c;
+    font-style: italic;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 1px solid #39c !important;
+}
+
+div.display-label {
+    float: left;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+display-field {
+    float: left;
+}

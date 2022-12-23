@@ -1,0 +1,153 @@
+@model NorthwindSampleDb.Models.Employees
+
+@{
+	ViewData["Title"] = "Edit - Employees";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Employees - Edit</h1>
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="editor-label">
+         @Html.LabelFor(model => model.EmployeeID)
+        </div>
+        <div class="editor-field">
+			@Html.DisplayFor(model => model.EmployeeID)
+            @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.TitleOfCourtesy)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.TitleOfCourtesy)
+            @Html.ValidationMessageFor(model => model.TitleOfCourtesy, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.BirthDate)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.BirthDate)
+            @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.HireDate)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.HireDate)
+            @Html.ValidationMessageFor(model => model.HireDate, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Region)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Region)
+            @Html.ValidationMessageFor(model => model.Region, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.PostalCode)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.PostalCode)
+            @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.HomePhone)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.HomePhone)
+            @Html.ValidationMessageFor(model => model.HomePhone, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Extension)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Extension)
+            @Html.ValidationMessageFor(model => model.Extension, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Photo)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Photo)
+            @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.ReportsTo)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.ReportsTo)
+            @Html.ValidationMessageFor(model => model.ReportsTo, "", new { @class = "text-danger" })
+        </div>
+        <div class="editor-label">
+         @Html.LabelFor(model => model.PhotoPath)
+        </div>
+        <div class="editor-field">
+			@Html.TextBoxFor(model => model.PhotoPath)
+            @Html.ValidationMessageFor(model => model.PhotoPath, "", new { @class = "text-danger" })
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+}
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>
+<script>
+$( function() {
+
+	$('#BirthDate').datepicker();
+	$('#HireDate').datepicker();
+} );
+</script>

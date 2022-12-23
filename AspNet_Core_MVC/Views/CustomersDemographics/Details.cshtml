@@ -1,0 +1,44 @@
+@model NorthwindSampleDb.Models.CustomersDemographics
+
+@{
+	ViewData["Title"] = "Details - CustomersDemographics";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>CustomersDemographics - Details</h1>
+
+    <div class="display-label">CustomersTypeId</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CustomersTypeId)</div>
+    <div class="display-label">CustomersDesc</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CustomersDesc)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { CustomersTypeId=Model.CustomersTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<br><hr /><br>
+<h1>CustomersCustomersDemo</h1>
+<table class="table" id="tbl_CustomersCustomersDemo_List">
+<thead>
+	<tr class="tableCaption">
+		<th>CustomerID</th>
+		<th>CustomersTypeId</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.CustomersCustomersDemoList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.CustomerID)</td>
+		<td>@Html.DisplayFor(model => ft.CustomersTypeId)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_CustomersCustomersDemo_List').DataTable();
+        });
+    </script>

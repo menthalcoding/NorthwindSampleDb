@@ -1,0 +1,18 @@
+@model NorthwindSampleDb.Models.CustomersCustomersDemo
+
+@{
+	ViewData["Title"] = "Details - CustomersCustomersDemo";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>CustomersCustomersDemo - Details</h1>
+
+    <div class="display-label">CustomerID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CustomerID)</div>
+    <div class="display-label">CustomersTypeId</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CustomersTypeId)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { CustomerID=Model.CustomerID, CustomersTypeId=Model.CustomersTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

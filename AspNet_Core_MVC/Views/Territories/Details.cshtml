@@ -1,0 +1,46 @@
+@model NorthwindSampleDb.Models.Territories
+
+@{
+	ViewData["Title"] = "Details - Territories";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Territories - Details</h1>
+
+    <div class="display-label">TerritoryID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.TerritoryID)</div>
+    <div class="display-label">TerritoryDescription</div>
+    <div class="display-field">@Html.DisplayFor(model => model.TerritoryDescription)</div>
+    <div class="display-label">RegionID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.RegionID)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { TerritoryID=Model.TerritoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<br><hr /><br>
+<h1>EmployeesTerritories</h1>
+<table class="table" id="tbl_EmployeesTerritories_List">
+<thead>
+	<tr class="tableCaption">
+		<th>EmpleymontId</th>
+		<th>TerritoryID</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.EmployeesTerritoriesList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.EmpleymontId)</td>
+		<td>@Html.DisplayFor(model => ft.TerritoryID)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_EmployeesTerritories_List').DataTable();
+        });
+    </script>

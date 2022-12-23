@@ -1,0 +1,34 @@
+@model NorthwindSampleDb.Models.CustomersCustomersDemo
+
+@{
+	ViewData["Title"] = "Create - CustomersCustomersDemo";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>CustomersCustomersDemo - Create</h1>
+
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CustomerID)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.CustomerID, (IEnumerable<SelectListItem>)ViewBag.CustomersList)
+        @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CustomersTypeId)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.CustomersTypeId, (IEnumerable<SelectListItem>)ViewBag.CustomersDemographicsList)
+        @Html.ValidationMessageFor(model => model.CustomersTypeId, "", new { @class = "text-danger" })
+    </div>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

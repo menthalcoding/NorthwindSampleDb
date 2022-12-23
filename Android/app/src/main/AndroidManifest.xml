@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NorthwindSampleDb"
+        tools:targetApi="31">
+
+        <activity android:name="View.UI.LoginWebApiActivity"
+            android:exported="true"></activity>
+        <activity android:name="View.UI.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="View.UI.CategoriesListActivity" />
+        <activity android:name="View.UI.CategoriesCreateActivity" />
+        <activity android:name="View.UI.CategoriesEditActivity" />
+        <activity android:name="View.UI.CategoriesDeleteActivity" />
+        <activity android:name="View.UI.CategoriesDetailActivity" />
+        <activity android:name="View.UI.CustomersListActivity" />
+        <activity android:name="View.UI.CustomersCreateActivity" />
+        <activity android:name="View.UI.CustomersEditActivity" />
+        <activity android:name="View.UI.CustomersDeleteActivity" />
+        <activity android:name="View.UI.CustomersDetailActivity" />
+        <activity android:name="View.UI.CustomersCustomersDemoListActivity" />
+        <activity android:name="View.UI.CustomersCustomersDemoCreateActivity" />
+        <activity android:name="View.UI.CustomersCustomersDemoEditActivity" />
+        <activity android:name="View.UI.CustomersCustomersDemoDeleteActivity" />
+        <activity android:name="View.UI.CustomersCustomersDemoDetailActivity" />
+        <activity android:name="View.UI.CustomersDemographicsListActivity" />
+        <activity android:name="View.UI.CustomersDemographicsCreateActivity" />
+        <activity android:name="View.UI.CustomersDemographicsEditActivity" />
+        <activity android:name="View.UI.CustomersDemographicsDeleteActivity" />
+        <activity android:name="View.UI.CustomersDemographicsDetailActivity" />
+        <activity android:name="View.UI.EmployeesListActivity" />
+        <activity android:name="View.UI.EmployeesCreateActivity" />
+        <activity android:name="View.UI.EmployeesEditActivity" />
+        <activity android:name="View.UI.EmployeesDeleteActivity" />
+        <activity android:name="View.UI.EmployeesDetailActivity" />
+        <activity android:name="View.UI.EmployeesTerritoriesListActivity" />
+        <activity android:name="View.UI.EmployeesTerritoriesCreateActivity" />
+        <activity android:name="View.UI.EmployeesTerritoriesEditActivity" />
+        <activity android:name="View.UI.EmployeesTerritoriesDeleteActivity" />
+        <activity android:name="View.UI.EmployeesTerritoriesDetailActivity" />
+        <activity android:name="View.UI.OrderListActivity" />
+        <activity android:name="View.UI.OrderCreateActivity" />
+        <activity android:name="View.UI.OrderEditActivity" />
+        <activity android:name="View.UI.OrderDeleteActivity" />
+        <activity android:name="View.UI.OrderDetailActivity" />
+        <activity android:name="View.UI.OrderDetailsListActivity" />
+        <activity android:name="View.UI.OrderDetailsCreateActivity" />
+        <activity android:name="View.UI.OrderDetailsEditActivity" />
+        <activity android:name="View.UI.OrderDetailsDeleteActivity" />
+        <activity android:name="View.UI.OrderDetailsDetailActivity" />
+        <activity android:name="View.UI.ProductsListActivity" />
+        <activity android:name="View.UI.ProductsCreateActivity" />
+        <activity android:name="View.UI.ProductsEditActivity" />
+        <activity android:name="View.UI.ProductsDeleteActivity" />
+        <activity android:name="View.UI.ProductsDetailActivity" />
+        <activity android:name="View.UI.RegionListActivity" />
+        <activity android:name="View.UI.RegionCreateActivity" />
+        <activity android:name="View.UI.RegionEditActivity" />
+        <activity android:name="View.UI.RegionDeleteActivity" />
+        <activity android:name="View.UI.RegionDetailActivity" />
+        <activity android:name="View.UI.ShippersListActivity" />
+        <activity android:name="View.UI.ShippersCreateActivity" />
+        <activity android:name="View.UI.ShippersEditActivity" />
+        <activity android:name="View.UI.ShippersDeleteActivity" />
+        <activity android:name="View.UI.ShippersDetailActivity" />
+        <activity android:name="View.UI.SuppliersListActivity" />
+        <activity android:name="View.UI.SuppliersCreateActivity" />
+        <activity android:name="View.UI.SuppliersEditActivity" />
+        <activity android:name="View.UI.SuppliersDeleteActivity" />
+        <activity android:name="View.UI.SuppliersDetailActivity" />
+        <activity android:name="View.UI.TerritoriesListActivity" />
+        <activity android:name="View.UI.TerritoriesCreateActivity" />
+        <activity android:name="View.UI.TerritoriesEditActivity" />
+        <activity android:name="View.UI.TerritoriesDeleteActivity" />
+        <activity android:name="View.UI.TerritoriesDetailActivity" />
+    </application>
+</manifest>

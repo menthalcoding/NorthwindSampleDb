@@ -1,0 +1,126 @@
+@model NorthwindSampleDb.Models.Order
+
+@{
+	ViewData["Title"] = "Create - Order";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Order - Create</h1>
+
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OrderId)
+    </div>
+    <div class="editor-field">
+		@Html.DisplayFor(model => model.OrderId)
+        @Html.ValidationMessageFor(model => model.OrderId, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CustomerID)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.CustomerID, (IEnumerable<SelectListItem>)ViewBag.CustomersList)
+        @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.EmployeeID)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.EmployeeID, (IEnumerable<SelectListItem>)ViewBag.EmployeesList)
+        @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.OrderDate)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.OrderDate)
+        @Html.ValidationMessageFor(model => model.OrderDate, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.RequiredDate)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.RequiredDate)
+        @Html.ValidationMessageFor(model => model.RequiredDate, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShippedDate)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShippedDate)
+        @Html.ValidationMessageFor(model => model.ShippedDate, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipName)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShipName)
+        @Html.ValidationMessageFor(model => model.ShipName, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipVia)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.ShipVia, (IEnumerable<SelectListItem>)ViewBag.ShippersList)
+        @Html.ValidationMessageFor(model => model.ShipVia, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Freight)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.Freight)
+        @Html.ValidationMessageFor(model => model.Freight, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipAddress)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShipAddress)
+        @Html.ValidationMessageFor(model => model.ShipAddress, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipCity)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShipCity)
+        @Html.ValidationMessageFor(model => model.ShipCity, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipRegion)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShipRegion)
+        @Html.ValidationMessageFor(model => model.ShipRegion, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipPostalCode)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShipPostalCode)
+        @Html.ValidationMessageFor(model => model.ShipPostalCode, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ShipCountry)
+    </div>
+    <div class="editor-field">
+		@Html.TextBoxFor(model => model.ShipCountry)
+        @Html.ValidationMessageFor(model => model.ShipCountry, "", new { @class = "text-danger" })
+    </div>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+<script>
+$( function() {
+
+	$('#OrderDate').datepicker();
+	$('#RequiredDate').datepicker();
+	$('#ShippedDate').datepicker();
+} );
+</script>

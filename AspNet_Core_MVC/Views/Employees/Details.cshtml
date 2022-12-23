@@ -1,0 +1,126 @@
+@model NorthwindSampleDb.Models.Employees
+
+@{
+	ViewData["Title"] = "Details - Employees";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Employees - Details</h1>
+
+    <div class="display-label">EmployeeID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.EmployeeID)</div>
+    <div class="display-label">LastName</div>
+    <div class="display-field">@Html.DisplayFor(model => model.LastName)</div>
+    <div class="display-label">FirstName</div>
+    <div class="display-field">@Html.DisplayFor(model => model.FirstName)</div>
+    <div class="display-label">Title</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Title)</div>
+    <div class="display-label">TitleOfCourtesy</div>
+    <div class="display-field">@Html.DisplayFor(model => model.TitleOfCourtesy)</div>
+    <div class="display-label">BirthDate</div>
+    <div class="display-field">@Html.DisplayFor(model => model.BirthDate)</div>
+    <div class="display-label">HireDate</div>
+    <div class="display-field">@Html.DisplayFor(model => model.HireDate)</div>
+    <div class="display-label">Address</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Address)</div>
+    <div class="display-label">City</div>
+    <div class="display-field">@Html.DisplayFor(model => model.City)</div>
+    <div class="display-label">Region</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Region)</div>
+    <div class="display-label">PostalCode</div>
+    <div class="display-field">@Html.DisplayFor(model => model.PostalCode)</div>
+    <div class="display-label">Country</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Country)</div>
+    <div class="display-label">HomePhone</div>
+    <div class="display-field">@Html.DisplayFor(model => model.HomePhone)</div>
+    <div class="display-label">Extension</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Extension)</div>
+    <div class="display-label">Photo</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Photo)</div>
+    <div class="display-label">Notes</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Notes)</div>
+    <div class="display-label">ReportsTo</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ReportsTo)</div>
+    <div class="display-label">PhotoPath</div>
+    <div class="display-field">@Html.DisplayFor(model => model.PhotoPath)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { EmployeeID=Model.EmployeeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<br><hr /><br>
+<h1>Order</h1>
+<table class="table" id="tbl_Order_List">
+<thead>
+	<tr class="tableCaption">
+		<th>OrderId</th>
+		<th>CustomerID</th>
+		<th>EmployeeID</th>
+		<th>OrderDate</th>
+		<th>RequiredDate</th>
+		<th>ShippedDate</th>
+		<th>ShipName</th>
+		<th>ShipVia</th>
+		<th>Freight</th>
+		<th>ShipAddress</th>
+		<th>ShipCity</th>
+		<th>ShipRegion</th>
+		<th>ShipPostalCode</th>
+		<th>ShipCountry</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.OrderList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.OrderId)</td>
+		<td>@Html.DisplayFor(model => ft.CustomerID)</td>
+		<td>@Html.DisplayFor(model => ft.EmployeeID)</td>
+		<td>@Html.DisplayFor(model => ft.OrderDate)</td>
+		<td>@Html.DisplayFor(model => ft.RequiredDate)</td>
+		<td>@Html.DisplayFor(model => ft.ShippedDate)</td>
+		<td>@Html.DisplayFor(model => ft.ShipName)</td>
+		<td>@Html.DisplayFor(model => ft.ShipVia)</td>
+		<td>@Html.DisplayFor(model => ft.Freight)</td>
+		<td>@Html.DisplayFor(model => ft.ShipAddress)</td>
+		<td>@Html.DisplayFor(model => ft.ShipCity)</td>
+		<td>@Html.DisplayFor(model => ft.ShipRegion)</td>
+		<td>@Html.DisplayFor(model => ft.ShipPostalCode)</td>
+		<td>@Html.DisplayFor(model => ft.ShipCountry)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_Order_List').DataTable();
+        });
+    </script>
+
+<br><hr /><br>
+<h1>EmployeesTerritories</h1>
+<table class="table" id="tbl_EmployeesTerritories_List">
+<thead>
+	<tr class="tableCaption">
+		<th>EmpleymontId</th>
+		<th>TerritoryID</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.EmployeesTerritoriesList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.EmpleymontId)</td>
+		<td>@Html.DisplayFor(model => ft.TerritoryID)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_EmployeesTerritories_List').DataTable();
+        });
+    </script>

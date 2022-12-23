@@ -1,0 +1,34 @@
+@model NorthwindSampleDb.Models.EmployeesTerritories
+
+@{
+	ViewData["Title"] = "Create - EmployeesTerritories";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>EmployeesTerritories - Create</h1>
+
+@using (Html.BeginForm())
+{
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="editor-label">
+        @Html.LabelFor(model => model.EmpleymontId)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.EmpleymontId, (IEnumerable<SelectListItem>)ViewBag.EmployeesList)
+        @Html.ValidationMessageFor(model => model.EmpleymontId, "", new { @class = "text-danger" })
+    </div>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.TerritoryID)
+    </div>
+    <div class="editor-field">
+		@Html.DropDownListFor(model => model.TerritoryID, (IEnumerable<SelectListItem>)ViewBag.TerritoriesList)
+        @Html.ValidationMessageFor(model => model.TerritoryID, "", new { @class = "text-danger" })
+    </div>
+    <p>
+        <input type="submit" value="Create" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

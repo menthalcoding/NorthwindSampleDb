@@ -1,0 +1,80 @@
+@model NorthwindSampleDb.Models.Suppliers
+
+@{
+	ViewData["Title"] = "Details - Suppliers";
+	Layout="~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Suppliers - Details</h1>
+
+    <div class="display-label">SupplierID</div>
+    <div class="display-field">@Html.DisplayFor(model => model.SupplierID)</div>
+    <div class="display-label">CompanyName</div>
+    <div class="display-field">@Html.DisplayFor(model => model.CompanyName)</div>
+    <div class="display-label">ContactName</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ContactName)</div>
+    <div class="display-label">ContactTitle</div>
+    <div class="display-field">@Html.DisplayFor(model => model.ContactTitle)</div>
+    <div class="display-label">Address</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Address)</div>
+    <div class="display-label">City</div>
+    <div class="display-field">@Html.DisplayFor(model => model.City)</div>
+    <div class="display-label">Region</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Region)</div>
+    <div class="display-label">PostalCode</div>
+    <div class="display-field">@Html.DisplayFor(model => model.PostalCode)</div>
+    <div class="display-label">Country</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Country)</div>
+    <div class="display-label">Phone</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Phone)</div>
+    <div class="display-label">Fax</div>
+    <div class="display-field">@Html.DisplayFor(model => model.Fax)</div>
+    <div class="display-label">HomePage</div>
+    <div class="display-field">@Html.DisplayFor(model => model.HomePage)</div>
+<br /><br />    
+<p>
+    @Html.ActionLink("Edit", "Edit", new { SupplierID=Model.SupplierID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<br><hr /><br>
+<h1>Products</h1>
+<table class="table" id="tbl_Products_List">
+<thead>
+	<tr class="tableCaption">
+		<th>ProductId</th>
+		<th>ProductName</th>
+		<th>SupplierID</th>
+		<th>CategoryID</th>
+		<th>QuantityPerUnit</th>
+		<th>UnitPrice</th>
+		<th>UnitsInStock</th>
+		<th>UnitsOnOrder</th>
+		<th>ReorderLevel</th>
+		<th>Discontinued</th>
+	</tr>
+</thead>
+<tbody>
+@foreach (var ft in Model.ProductsList) 
+{
+	<tr>
+		<td>@Html.DisplayFor(model => ft.ProductId)</td>
+		<td>@Html.DisplayFor(model => ft.ProductName)</td>
+		<td>@Html.DisplayFor(model => ft.SupplierID)</td>
+		<td>@Html.DisplayFor(model => ft.CategoryID)</td>
+		<td>@Html.DisplayFor(model => ft.QuantityPerUnit)</td>
+		<td>@Html.DisplayFor(model => ft.UnitPrice)</td>
+		<td>@Html.DisplayFor(model => ft.UnitsInStock)</td>
+		<td>@Html.DisplayFor(model => ft.UnitsOnOrder)</td>
+		<td>@Html.DisplayFor(model => ft.ReorderLevel)</td>
+		<td>@Html.DisplayFor(model => ft.Discontinued)</td>
+	</tr>
+}
+
+</tbody>
+</table>
+    <script>
+        $(document).ready(function () {
+            $('#tbl_Products_List').DataTable();
+        });
+    </script>
