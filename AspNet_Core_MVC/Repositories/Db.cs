@@ -31,8 +31,6 @@ namespace OnlineCoding.Code.Database
         // would need to be initialized there.
         private static readonly string dataProvider = "System.Data.SqlClient";//ConfigurationManager.AppSettings.Get("DataProvider");
         private static readonly DbProviderFactory factory = DbProviderFactories.GetFactory(dataProvider);
-
-        //private static readonly string connectionString = "Data Source=DESKTOP-CG4PNIF\\NEW_MSSQLSERVER;Initial Catalog=NorthwindSampleDb;User Id=sa; Password=YOUR_PASSWORD_HERE";
         private static readonly string connectionString = getConnectionString();
 
         private static string getConnectionString()
